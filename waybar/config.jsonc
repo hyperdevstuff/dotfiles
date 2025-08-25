@@ -1,0 +1,236 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 35,
+	"expand-center": true,
+	"spacing": 2,
+	"reload_style_on_change": true,
+	"margin-left": 0,
+	"margin-right": 0,
+	"modules-left": ["hyprland/workspaces", "privacy"],
+	"modules-center": ["mpris", "clock", "custom/pomodoro"],
+	"modules-right": [
+		// "group/system-info",
+		"tray",
+		"custom/notification",
+		"network",
+		"backlight",
+		"memory",
+		"cpu",
+		"temperature",
+		"pulseaudio",
+		"power-profiles-daemon",
+		"battery"
+	],
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"show-special": true,
+		"special-visible-only": true,
+		"on-click": "activate",
+		"format-icons": {},
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"scroll-step": 1,
+		"reverse-scrolling": true,
+		"smooth-scrolling-threshold": 1.0,
+		"persistent-workspaces": {
+			"*": 4
+		}
+	},
+	"privacy": {
+		"icon-spacing": 6,
+		"icon-size": 14,
+		"transition-duration": 200,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 18
+			},
+			{
+				"type": "audio-out",
+				"tooltip": true,
+				"tooltip-icon-size": 18
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 18
+			}
+		]
+	},
+	"mpris": {
+		"format": "{player_icon}  {dynamic}",
+		// "player": "mpd",
+		"player-icons": {
+			"spotify": "",
+			"vlc": "󰕼",
+			"mpd": "" // Or any icon like "󰎆" for music note
+		},
+		"dynamic-order": ["artist", "title"],
+		"artist-len": 12,
+		"title-len": 12,
+		"interval": 10,
+		"on-click-right": "kitty --start-as=normal sh -c 'rmpc'",
+		"on-click-middle": "hyprctl dispatch movetoworkspace class:spotify", // doesn't work
+		"on-double-click": "killall spotify",
+		"tooltip": true,
+		"tooltip-format": "{dynamic}",
+		"format-paused": "{player_icon} {dynamic}"
+	},
+	"clock": {
+		"format": "{:%a %OI:%M %p}",
+		"format-alt": "{:%B %d, %Y}",
+		"tooltip": false,
+		"interval": 1
+	},
+	"custom/pomodoro": {
+		"format": "{icon} {text}",
+		"return-type": "json",
+		"exec": "~/.local/bin/waybar-module-pomodoro --persist",
+		"on-click": "~/.local/bin/waybar-module-pomodoro toggle",
+		"on-click-right": "~/.local/bin/waybar-module-pomodoro rest"
+	},
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		}
+	},
+	"network": {
+		"interval": 2,
+		"format": "{icon}",
+		"format-icons": ["󰤠", "󰤟", "󰤢", "󰤥", "󰤨"],
+		// "format-disconnected": "󰤭 ",
+		"format-disconnected": "",
+		"tooltip-format": "{essid} ({signalStrength}%)\n{ifname}: {bandwidthUpBits}↑ {bandwidthDownBits}↓"
+	},
+	"backlight": {
+		"device": "nvidia_wmi_ec_backlight",
+		"format": "{percent}% {icon}",
+		"format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+		"interval": 2,
+		"on-click": "hyprctl hyprsunset temperature 5250",
+		"on-click-right": "hyprctl hyprsunset identity",
+		"smooth-scrolling-threshold": 1.0,
+		"reverse-scrolling": true,
+		"on-scroll-up": "brightnessctl s +5%",
+		"on-scroll-down": "brightnessctl s 5%-",
+		"tooltip": true,
+		"tooltip-format": "Current brightness: {percent}%",
+		"minimum": 5
+	},
+	"memory": {
+		"interval": 15,
+		"states": {
+			"good": 50,
+			"warning": 85,
+			"critical": 90
+		},
+		"format": "{percentage}% ",
+		"tooltip": true,
+		"tooltip-format": "{used} GiB/{total} GiB\n{swapUsed} GiB/{swapTotal} GiB\nAvailable: {avail} GiB",
+		"on-click-right": "kitty --start-as=fullscreen sh -c 'btop'"
+	},
+	"cpu": {
+		"format": "{usage}% ",
+		"tooltip": true,
+		"tooltip-format": "CPU: {usage}%",
+		"on-click-right": "kitty --start-as=fullscreen sh -c 'btop'",
+		"interval": 5
+	},
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "<span foreground='red'><sup></sup></span>",
+			"none": "",
+			"dnd-notification": " <span foreground='grey'><sup></sup></span>",
+			"dnd-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "sleep 0.15 && swaync-client -t -sw",
+		"on-click-right": "sleep 0.15 && swaync-client -d -sw",
+		"escape": true
+	},
+	"temperature": {
+		"thermal-zone": 9,
+		"warning-threshold": 65,
+		"critical-threshold": 75,
+		"interval": 5,
+		"format-icons": ["", "", "", "", ""],
+		"format": "{temperatureC}°C {icon}",
+		"on-click-right": "kitty --start-as=fullscreen  sh -c 'btop'"
+	},
+	"pulseaudio": {
+		"scroll-step": 1,
+		"format": "{volume}% {icon}",
+		"format-muted": "󰖁",
+		"format-icons": {
+			"headphones": "󰋋",
+			"headset": "󰋎",
+			"phone": "",
+			"phone-muted": "",
+			"portable": "",
+			"default": ["󰕿", "󰖀", "󰕾", ""]
+			// "󰖁", "󰝟 " or " "
+		},
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol",
+		"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+		"tooltip": true,
+		"smooth-scrolling-threshold": 1.0,
+		"tooltip-format": "{desc} - {volume}%",
+		"max-volume": 150,
+		"reverse-scrolling": true
+	},
+	"battery": {
+		"states": {
+			"good": 80,
+			"warning": 30,
+			"critical": 20
+		},
+		"format": "{icon} {capacity}%",
+		"format-icons": ["", "", "", "", ""],
+		"format-critical": "{icon} {capacity}%",
+		"format-warning": "{icon} {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{icon} {time}",
+		"tooltip": true,
+		"tooltip-format": "Battery: {capacity}%\nTime: {time}\nCycles: {cycles}",
+		"tooltip-format-plugged": "Cycles: {cycles}\nHealth: {health}%\nPower: {power}W"
+	},
+	"tray": {
+		"icon-size": 18,
+		"spacing": 8
+	},
+	// testing somethings
+	"group/system-info": {
+		"orientation": "horizontal",
+		"drawer": {
+			"transition-duration": 300,
+			"transition-left-to-right": false
+		},
+		"modules": [
+			"custom/icon",
+			"temperature",
+			"network",
+			"backlight",
+			"memory",
+			"cpu"
+		]
+	},
+	"custom/icon": {
+		"format-icon": "←"
+	}
+}

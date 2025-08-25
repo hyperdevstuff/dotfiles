@@ -4,17 +4,26 @@ return {
     lazy = true,
     cmd = "Oil",
     event = "VeryLazy",
-    opts = {},
+    keys = {
+      { "-", "<cmd>Oil<cr>", desc = "Open Oil file explorer" },
+    },
+    opts = {
+      default_file_explorer = true,
+    },
     config = function()
-      local oil = require("oil")
-
-      oil.setup({
-        default_file_explorer = true,
+      require("oil").setup({
         delete_to_trash = true,
         skip_confirm_for_simple_edits = true,
+        constrain_cursor = "name",
         columns = {
           "icon",
-          --"permissions", "size","mtime",
+          -- "permissions",
+          -- "size",
+          -- "mtime",
+        },
+        win_options = {
+          signcolumn = "yes",
+          winblend = 10,
         },
         view_options = {
           show_hidden = true,
@@ -23,13 +32,10 @@ return {
             return name == ".." or name == ".git"
           end,
         },
-        -- Use - to toggle oil
         keymaps = {
           ["\\"] = "actions.close",
           ["q"] = "actions.close",
-          ["v"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
           ["<C-CR>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
-          -- ["P"] = "actions.preview",
           ["<C-h>"] = false,
           ["<C-l>"] = false,
         },
@@ -40,6 +46,7 @@ return {
           max_height = 0,
           border = "rounded",
           win_options = {
+            signcolumn = "yes",
             winblend = 10,
           },
           preview_split = "right",
@@ -47,12 +54,38 @@ return {
             return conf
           end,
         },
+        git = {
+          add = function(path)
+            return true
+          end,
+          mv = function(src_path, dest_path)
+            return true
+          end,
+          rm = function(path)
+            return true
+          end,
+        },
       })
     end,
   },
+  --extending-oil
+  {
+    "refractalize/oil-git-status.nvim",
+    dependencies = {
+      "stevearc/oil.nvim",
+    },
+    opts = {},
+  },
+  {
+    "JezerM/oil-lsp-diagnostics.nvim",
+    dependencies = { "stevearc/oil.nvim" },
+    opts = {},
+  },
+
   {
     "mikavilpas/yazi.nvim",
     event = "VeryLazy",
+    lazy = true,
     keys = {
       {
         "<leader>-",

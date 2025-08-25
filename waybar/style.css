@@ -1,0 +1,241 @@
+@import "colors.css";
+* {
+	font-family:
+		FontAwesome,
+		JetBrainsMono Nerd Font,
+		monospace;
+	font-size: 13px;
+	font-weight: 500;
+	border-radius: 5px;
+}
+
+window#waybar {
+	background: transparent;
+	transition-property: background-color, opacity;
+	transition-duration: 0.3s;
+}
+
+window#waybar.hidden {
+	opacity: 0.1;
+}
+
+#workspaces {
+	background-color: #282828;
+	/* background-color: transparent; */
+	padding: 3px 3px;
+	/* might fix the flicker issue */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button {
+	padding: 0 6px;
+	background-color: transparent;
+	color: #ebdbb2;
+	margin: 0px 3px;
+	transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active {
+	/* background-color: #504945; */
+	background: linear-gradient(135deg, #504945, #665c54);
+	/* background-color: #664c54; */
+	color: #ebdbb2;
+	font-weight: 700;
+	border-radius: 5px;
+}
+
+#workspaces button.empty {
+	color: #a89984;
+	background-color: #32302f;
+}
+
+#workspaces button.special {
+	color: #d8a657;
+	background-color: #32302f;
+	transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
+	/* background-color: #504945; */
+	border-color: #665c54;
+	background: linear-gradient(135deg, #504945, #665c54);
+}
+
+.modules-right {
+	margin: 5px 5px 0 0;
+}
+
+.modules-center {
+	margin: 5px 0 0 0px;
+}
+
+.modules-left {
+	margin: 5px 0 0 5px;
+}
+/* .system-info, */
+#clock,
+#backlight,
+#memory,
+#temperature,
+#cpu,
+#pulseaudio,
+#network,
+#privacy,
+#battery,
+#power-profiles-daemon,
+#mpris,
+#mpd,
+#mpris.paused,
+#custom-notification {
+	background-color: #282828;
+	color: #ddc7a1;
+	padding: 0 12px;
+}
+
+#cpu.warning,
+#battery.warning,
+#temperature.warning {
+	color: #d8a657;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#workspaces button.urgent,
+#cpu.critical,
+#temperature.critical {
+	background: linear-gradient(135deg, #ea6962, #cc241d);
+	color: #282828;
+	font-weight: 700;
+	animation: urgent-blink 1s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+}
+
+#pulseaudio.muted {
+	background-color: #7c6f64;
+	color: #ebdbb2;
+}
+
+#battery.charging,
+#battery.plugged {
+	background-color: #98971a;
+	color: #282828;
+}
+
+@keyframes blink {
+	to {
+		background-color: #282828;
+		color: #ebdbb2;
+	}
+}
+
+#battery.critical {
+	background-color: #cc241d;
+	color: #ebdbb2;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#tray {
+	background-color: #282828;
+	padding: 0 10px;
+	color: #ebdbb2;
+}
+
+#custom-pomodoro {
+	background-color: #282828;
+	color: #ebdbb2;
+	padding: 0 10px;
+	border-radius: 5px;
+	margin: 0 2px;
+	transition: all 0.2s ease-in-out;
+}
+
+/* Less distractive colors */
+/* #custom-pomodoro.break { */
+/*   background-color: #689d6a; */
+/*   color: #ebdbb2; */
+/* } */
+/**/
+/* #custom-pomodoro.pause { */
+/*   background-color: #fabd2f; */
+/*   color: #282828; */
+/* } */
+/**/
+/* #custom-pomodoro.stopped { */
+/*   background-color: #cc241d; */
+/*   color: #ebdbb2; */
+/* } */
+
+#tray.passive,
+#tray.active {
+	background-color: #383839;
+	color: #ebdbb2;
+}
+
+#tray.needs-attention {
+	background-color: #ea6962;
+}
+
+#clock:hover,
+#custom-pomodoro:hover,
+#backlight:hover,
+#memory:hover,
+#custom-notification:hover,
+#temperature:hover,
+#cpu:hover,
+#privacy:hover,
+#power-profiles-daemon:hover,
+#mpris:hover,
+#mpd:hover,
+#tray:hover,
+#network:hover,
+#pulseaudio:hover {
+	/* background-color: #504945; */
+	background: linear-gradient(135deg, #504945, #665c54);
+}
+
+tooltip {
+	background-color: #282828;
+	border: 1px solid #665c54;
+	border-radius: 8px;
+	padding: 8px 12px;
+	color: #ebdbb2;
+}
+
+@keyframes urgent-blink {
+	from {
+		background-color: #fb4934;
+		color: #282828;
+	}
+
+	to {
+		background-color: #cc241d;
+		color: #ebdbb2;
+	}
+}
+/* test  */
+/* #backlight-slider slider { */
+/* 	min-height: 0px; */
+/* 	min-width: 100px; */
+/* 	opacity: 50; */
+/* } */
+/**/
+/* #backlight-slider trough { */
+/* 	min-height: 4px; */
+/* 	min-width: 100px; */
+/* 	border-radius: 5px; */
+/* 	background-color: black; */
+/* } */
+/**/
+/* #backlight-slider highlight { */
+/* 	min-width: 10px; */
+/* 	border-radius: 10px; */
+/* 	background-color: red; */
+/* } */

@@ -1,4 +1,5 @@
 alias lg='lazygit'
+alias ppm=pnpm
 alias lD='lazydocker'
 alias n='nvim'
 alias c='clear'
@@ -6,12 +7,14 @@ alias ff='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}
 alias nf='fzf -m --preview="bat --color=always {}" --bind "enter:become(nvim {+})"'
 alias nd='nvim -c Oil'
 alias __='shutdown'
-alias t='tmux attach'
+alias ta='tmux attach'
 alias rel='source ~/.zshrc'
 alias ref='exec zsh'
 alias md=mkdir
 alias wman=wikiman
 alias evil=hx
+alias paclst="pacman -Qe"
+alias steal="git clone"
 # I accidentally nuked my home dir :(
 alias rm="rm -Ii"
 alias size='du -sh --block-size=MB'

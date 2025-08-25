@@ -1,0 +1,112 @@
+{
+	"$schema": "/etc/xdg/swaync/configSchema.json",
+	"ignore-gtk-theme": true,
+	"positionX": "right",
+	"positionY": "top",
+	"layer": "overlay",
+	"control-center-layer": "top",
+	"layer-shell": true,
+	"layer-shell-cover-screen": false,
+	"cssPriority": "highest",
+	"control-center-margin-top": 10,
+	"control-center-margin-bottom": 10,
+	"control-center-margin-right": 10,
+	"control-center-margin-left": 10,
+	"notification-2fa-action": true,
+	"notification-inline-replies": true,
+	"notification-icon-size": 32,
+	"notification-body-image-height": 100,
+	"notification-body-image-width": 200,
+	"timeout": 8,
+	"timeout-low": 5,
+	"timeout-critical": 0,
+	"fit-to-screen": true,
+	"relative-timestamps": true,
+	"control-center-width": 550,
+	"control-center-height": 70,
+	"control-center-height-is-percent": true,
+	"notification-window-width": 400,
+	"keyboard-shortcuts": true,
+	"image-visibility": "when-available",
+	"transition-time": 300,
+	"hide-on-clear": true,
+	"hide-on-action": true,
+	"script-fail-notify": true,
+	"notification-visibility": {
+		"mute-spotify": {
+			"state": "muted",
+			"urgency": "Low",
+			"app-name": "Spotify"
+		}
+	},
+	"widgets": [
+		"buttons-grid",
+		"volume",
+		"backlight",
+		"dnd",
+		"mpris",
+		"inhibitors",
+		"title",
+		"notifications"
+	],
+	"widget-config": {
+		"inhibitors": {
+			"text": "Inhibitors",
+			"button-text": "Clear",
+			"clear-all-button": true
+		},
+		"title": {
+			"text": "Notifs",
+			"clear-all-button": true,
+			"button-text": "Clear"
+		},
+		"dnd": {
+			"text": "Do Not Disturb"
+		},
+		"mpris": {
+			"blacklist": ["pavucontrol", "playerctld", "mpd"],
+			"autohide": true
+		},
+		"volume": {
+			"label": "󰕾",
+			"show-per-app": true,
+			"show-per-app-icon": true
+		},
+		"backlight": {
+			"label": "󰃠",
+			"device": "nvidia_wmi_ec_backlight",
+			"min": 5
+		},
+		"buttons-grid": {
+			"actions": [
+				{
+					"label": "󰤨",
+					"type": "toggle",
+					"active": false,
+					"command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+					"update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
+				},
+				{
+					"label": "󰂯",
+					"command": "blueman-manager"
+				},
+				{
+					"label": "󰄄",
+					"command": "pidof slurp || hyprshot --freeze --mode output"
+				},
+				{
+					"label": "󰌾",
+					"command": "hyprlock"
+				},
+				{
+					"label": "󰍃",
+					"command": "uwsm stop"
+				},
+				{
+					"label": "󰜉",
+					"command": "systemctl reboot"
+				}
+			]
+		}
+	}
+}

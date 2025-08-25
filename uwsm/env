@@ -1,0 +1,21 @@
+APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'
+#nvidia
+export GBM_BACKEND=nvidia-drm # general buffer management set to nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __GL_GSYNC_ALLOWED=0
+export __GL_VRR_ALLOWED=0
+export LIBVA_DRIVER_NAME=nvidia #nvidia as va-api (video accleration)
+export NVD_BACKEND=direct
+#electron caveats
+export ELECTRON_OZONE_PLATFORM_HINT=auto # wayland or x11
+# qt
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME=qt5ct
+export WLR_NO_HARDWARE_CURSORS=1
+# gtk backend
+export GDK_BACKEND=wayland,x11
+#misc
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+export XDG_PICTURES_DIR=$HOME/Pictures

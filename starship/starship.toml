@@ -3,24 +3,30 @@ add_newline = true
 format = """$directory
 $character"""
 
-right_format = """
-$git_branch$git_status$bun$python$nodejs$rust$lua$java$golang$zig$cmd_duration"""
+right_format = """$git_branch$git_status$bun$python$nodejs$rust$lua$java$golang$zig$cmd_duration$all"""
 
 [character]
-success_symbol = "[❯](bold #fabd2f)" 
-error_symbol = "[❯](bold #fb4934)"
+success_symbol = "[ ](bold #C9B693)"
+error_symbol = "[ ](bold #fb4934)"
+vimcmd_symbol = '[ ](bold fg:#98971a)'
+vimcmd_replace_one_symbol = '[ ](bold fg:#b16286)'
+vimcmd_replace_symbol = '[ ](bold fg:#b16286)'
+vimcmd_visual_symbol = '[ ](bold fg:#d79921)'
+
+[line_break]
+disabled = true
 
 [directory]
-style = "bold #8ec07c" 
+style = "bold #8ec07c"
 truncation_length = 3
 truncate_to_repo = true
 
 [git_branch]
-style = "bold #d3869b" 
+style = "bold #d3869b"
 symbol = " "
 
 [git_status]
-style = "bold #fabd2f" 
+style = "bold #fabd2f"
 conflicted = "=[$count](bold #fb4934)"
 ahead = "⇡[$count](bold #b8bb26)"
 behind = "⇣[$count](bold #b8bb26)"
@@ -33,41 +39,45 @@ renamed = "»[$count](bold #fe8019)"
 deleted = "✘[$count](bold #fb4934)"
 
 [bun]
-symbol = "🥯 "
+symbol = " "
 style = "bold #fabd2f"
 
+[docker_context]
+symbol = " "
+style = "bg:#665c54"
+format = '[[ $symbol( $context) ](fg:#83a598 bg:#665c54)]($style)'
+
 [python]
-symbol = "🐍 "
-style = "bold #fabd2f" 
+symbol = " "
+style = "bold #fabd2f"
 
 [nodejs]
-symbol = "⬢ "
+symbol = " "
 style = "bold #b8bb26"
 
 [rust]
-symbol = "🦀 "
+symbol = "󱘗 "
 style = "bold #fe8019"
 
 [lua]
 format = 'via [$symbol($version )]($style)'
-version_format='v${raw}'
-symbol='🌙 '
+version_format = 'v${raw}'
+symbol = " "
 
 [java]
-symbol = "☕ "
+symbol = " "
 style = "bold #d3869b"
 
 [golang]
-symbol = "🐹 "
+symbol = " "
 style = "bold #83a598"
 
 [zig]
-symbol = "⚡ "
+symbol = " "
 style = "bold #fe8019"
-format = 'via [$symbol($version )]($style)'
-version_format ='v${raw}'
+format = 'via [$symbol($version)]($style)'
 
 [cmd_duration]
 min_time = 500
 style = "bold #fabd2f"
-format = "[$duration]($style) "
+format = " [$duration]($style)"

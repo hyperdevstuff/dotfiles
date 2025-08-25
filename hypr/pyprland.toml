@@ -1,0 +1,50 @@
+[pyprland]
+plugins = ["scratchpads", "expose", "wallpapers"]
+
+[scratchpads.term]
+animation = "fromTop"
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
+size = "50% 50%"
+allow_special_workspaces = true
+max_size = "1920px 100%"
+margin = 50
+
+[scratchpads.music]
+animation = "fromBottom"
+command = "kitty --class rmpc-scratchpad rmpc"
+class = "rmpc-scratchpad"
+size = "75% 75%"
+allow_special_workspaces = true
+max_size = "1920px 100%"
+margin = 50
+unfocus = "hide"
+
+[scratchpads.volume]
+animation = "fromRight"
+command = "pavucontrol"
+class = "pavucontrol"
+lazy = true
+size = "40% 90%"
+unfocus = "hide"
+
+[scratchpads.phone]
+animation = "fromRight"
+command = "kdeconnect-app"
+class = "org.kde.kdeconnect.app"
+lazy = true
+pinned = true
+size = "40% 90%"
+unfocus = "hide"
+
+[expose]
+include_special = false
+
+[wallpapers]
+path = "~/Pictures/walls/"
+interval = 60
+extensions = ["jpg", "jpeg", "png", "gif"]
+recurse = true
+unique = true
+command = 'swww img --transition-step 100 --transition-fps 144 --transition-type random --transition-angle 30 --transition-duration 1 "[file]"'
+clear_command = "swww clear"

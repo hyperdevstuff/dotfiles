@@ -1,0 +1,169 @@
+/* -- Color Palette -- */
+:root {
+	--gruv-bg: #282828;
+	--gruv-bg-alt: #3c3836;
+	--gruv-fg: #ebdbb2;
+	--gruv-fg-alt: #a89984;
+	--gruv-border: #504945;
+	--gruv-accent: #d65d0e; /* Orange is the classic accent */
+	--gruv-red: #cc241d;
+	--gruv-blue: #458588;
+	--gruv-aqua: #689d6a;
+
+	/* Mapping Gruvbox colors to the theme's variables */
+	--bg-color: rgba(40, 40, 40, 0.9); /* Main background - from --gruv-bg */
+	--widget-bg: var(--gruv-bg-alt); /* Widget background */
+	--widget-bg-hover: var(--gruv-border); /* Hover effect for widgets */
+
+	--accent-color: var(--gruv-accent); /* Main accent for toggles/sliders */
+	--accent-fg-color: var(--gruv-bg); /* Text on top of the accent (dark) */
+
+	--fg-color: var(--gruv-fg); /* Main text color */
+	--fg-alt-color: var(--gruv-fg-alt); /* Secondary text color */
+
+	--red: var(--gruv-red);
+	--border-color: rgba(80, 73, 69, 0.8); /* Border from --gruv-border */
+}
+
+/* -- General Styling -- */
+* {
+	font-family: "JetBrainsMono Nerd Font", "Cantarell", sans-serif;
+	font-size: 13px;
+	color: var(--fg-color);
+	border: none;
+	border-radius: 24px;
+}
+
+/* -- Control Center & Notifications -- */
+.control-center {
+	background-color: var(--bg-color);
+	border: 1px solid var(--border-color);
+	padding: 12px;
+	margin: 12px;
+}
+
+.notification-row {
+	background-color: var(--widget-bg);
+	margin: 10px 10px 0;
+	padding: 12px;
+	min-height: 50px;
+	transition: background-color 0.2s ease;
+}
+
+.notification-row:hover {
+	background-color: var(--widget-bg-hover);
+}
+
+.summary {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+.app-name {
+	color: var(--accent-color);
+	font-weight: bold;
+}
+.time {
+	color: var(--fg-alt-color);
+	font-size: 0.9em;
+}
+
+/* -- Widget Styling -- */
+.widget {
+	background-color: var(--widget-bg);
+	margin: 6px;
+	padding: 12px;
+}
+
+/* Title and DND Widgets */
+.widget-title,
+.widget-dnd {
+	font-size: 1.3rem;
+	font-weight: bold;
+	padding: 12px;
+}
+
+.widget-title .button {
+	font-size: 0.9rem;
+	padding: 4px 12px;
+	background-color: var(--widget-bg-hover);
+}
+.widget-title .button:hover {
+	background-color: var(--red);
+}
+
+/* --- QUICK SETTINGS TOGGLES --- */
+.widget-buttons-grid {
+	background-color: transparent;
+	padding: 0;
+}
+
+.widget-buttons-grid .button {
+	background-color: var(--widget-bg);
+	font-size: 26px;
+	min-width: 64px;
+	min-height: 64px;
+	border-radius: 50%;
+	transition: all 0.2s ease-in-out;
+}
+
+.widget-buttons-grid .button:hover {
+	background-color: var(--widget-bg-hover);
+	transform: scale(1.05);
+}
+
+.widget-buttons-grid .button.toggled {
+	background-color: var(--accent-color);
+	color: var(--accent-fg-color);
+}
+
+/* --- SLIDERS (Volume & Brightness) --- */
+.widget-volume,
+.widget-backlight {
+	padding: 4px;
+	margin: 4px 4px;
+}
+.widget-volume label,
+.widget-backlight label {
+	font-size: 24px;
+	color: var(--fg-alt-color);
+}
+scale trough {
+	background-color: var(--widget-bg-hover);
+	border-radius: 16px;
+	min-height: 12px;
+	min-width: 150px;
+}
+scale highlight {
+	background-color: var(--accent-color);
+	border-radius: 16px;
+}
+scale slider {
+	background-color: var(--fg-color);
+	min-width: 20px;
+	min-height: 20px;
+	border-radius: 50%;
+	margin: -4px;
+}
+
+/* --- MEDIA PLAYER --- */
+.widget-mpris {
+	padding: 12px;
+}
+.widget-mpris .image {
+	border-radius: 12px;
+}
+.widget-mpris .title {
+	font-weight: bold;
+	font-size: 1em;
+}
+.widget-mpris .artist {
+	color: var(--fg-alt-color);
+	font-size: 0.8em;
+}
+.widget-mpris .button {
+	font-size: 20px;
+	margin: 0 4px;
+}
+.widget-mpris .button:hover {
+	color: var(--accent-color);
+}
