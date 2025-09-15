@@ -11,6 +11,12 @@ return {
       top_down = false,
     },
     picker = {
+      matcher = {
+        cwd_bonus = true,
+        frecency = true,
+      },
+      win = { input = { keys = { ["<a-.>"] = { "toggle_hidden", mode = { "i", "n" } } } } },
+      list = { keys = { ["<a-.>"] = "toggle_hidden" } },
       sources = {
         explorer = {
           layout = { layout = { position = "right" } },

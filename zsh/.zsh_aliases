@@ -15,6 +15,7 @@ alias wman=wikiman
 alias evil=hx
 alias paclst="pacman -Qe"
 alias steal="git clone"
+alias wtf3000="fuser -v 3000/tcp"
 # I accidentally nuked my home dir :(
 alias rm="rm -Ii"
 alias size='du -sh --block-size=MB'

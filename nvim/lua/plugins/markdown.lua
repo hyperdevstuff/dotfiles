@@ -67,10 +67,6 @@ return {
 
     config = function(_, opts)
       require("markview").setup(opts)
-
-      -- === EXTRA MODULES SETUP ("THE GOOD STUFF") ===
-
-      -- 1. Interactive Checkboxes
       require("markview.extras.checkboxes").setup()
       -- Keymap for interactive mode. In this mode, use h/j/k/l to cycle through states.
       vim.keymap.set("n", "<leader>ct", ":Checkbox interactive<CR>", {
@@ -93,7 +89,7 @@ return {
       -- 3. Code Block Editor
       require("markview.extras.editor").setup()
       -- Keymap to open the code block editor in a floating window
-      vim.keymap.set("n", "<leader>ce", ":EditCodeblock<CR>", {
+      vim.keymap.set("n", "<leader>ce", ":Editor edit<CR>", {
         silent = true,
         desc = "Markview: Edit Code Block",
       })

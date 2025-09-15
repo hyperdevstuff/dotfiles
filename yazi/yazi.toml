@@ -4,6 +4,6 @@ show_hidden = true
 show_symlink = true
 [opener]
 edit = [{ run = 'nvim "$@"', block = true, for = "unix" }]
-play = [{ run = 'mpv "$@"', desc = "VLC", orphan = true }]
+play = [{ run = 'mpv "$@"', desc = "mpv", orphan = true }]
 [plugin]
 prepend_previewers = [{ name = "*.md", run = 'glow' }]

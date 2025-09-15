@@ -64,7 +64,7 @@
 			"text": "Do Not Disturb"
 		},
 		"mpris": {
-			"blacklist": ["pavucontrol", "playerctld", "mpd"],
+			"blacklist": ["pavucontrol", "playerctld"],
 			"autohide": true
 		},
 		"volume": {

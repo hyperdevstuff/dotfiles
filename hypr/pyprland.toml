@@ -14,11 +14,12 @@ margin = 50
 animation = "fromBottom"
 command = "kitty --class rmpc-scratchpad rmpc"
 class = "rmpc-scratchpad"
-size = "75% 75%"
+size = "85% 85%"
 allow_special_workspaces = true
-max_size = "1920px 100%"
-margin = 50
+margin = 20
+pinned = false
 unfocus = "hide"
+hysteresis = 0.2
 
 [scratchpads.volume]
 animation = "fromRight"
@@ -33,6 +34,7 @@ animation = "fromRight"
 command = "kdeconnect-app"
 class = "org.kde.kdeconnect.app"
 lazy = true
+allow_special_workspaces = true
 pinned = true
 size = "40% 90%"
 unfocus = "hide"

@@ -8,7 +8,7 @@
 	"margin-left": 0,
 	"margin-right": 0,
 	"modules-left": ["hyprland/workspaces", "privacy"],
-	"modules-center": ["mpris", "clock", "custom/pomodoro"],
+	"modules-center": ["mpd", "mpris", "clock", "custom/pomodoro"],
 	"modules-right": [
 		// "group/system-info",
 		"tray",
@@ -60,7 +60,7 @@
 		]
 	},
 	"mpris": {
-		"format": "{player_icon}  {dynamic}",
+		"format": "{player_icon} {dynamic}",
 		// "player": "mpd",
 		"player-icons": {
 			"spotify": "",
@@ -76,7 +76,8 @@
 		"on-double-click": "killall spotify",
 		"tooltip": true,
 		"tooltip-format": "{dynamic}",
-		"format-paused": "{player_icon} {dynamic}"
+		"format-paused": "{player_icon} {dynamic}",
+		"ignored-players": []
 	},
 	"clock": {
 		"format": "{:%a %OI:%M %p}",
