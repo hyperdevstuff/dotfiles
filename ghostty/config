@@ -1,6 +1,6 @@
 font-size = 15
 font-family = JetBrainsMono Nerd Font
-theme = GruvboxDark
+theme = Gruvbox Dark Hard
 shell-integration-features = "cursor,sudo,title"
 background-blur = true
 cursor-style = bar

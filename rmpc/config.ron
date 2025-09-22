@@ -119,7 +119,7 @@
             "<Esc>":     Close,
             "K":         MoveUp,
             "D":         Delete,
-            "B":         ShowInfo,
+            "E":         ShowInfo,
         },
         queue: {
             "D":       DeleteAll,

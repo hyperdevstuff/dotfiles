@@ -26,13 +26,13 @@ return {
         "typescript",
         "zig",
       })
-      opts.incremental_selection.keymaps.init_selection = "<C-n>"
-      opts.incremental_selection.keymaps.node_incremental = "<C-n>"
-      opts.incremental_selection.keymaps.scope_incremental = "<A-n>"
+      -- opts.incremental_selection.keymaps.init_selection = "<C-n>"
+      -- opts.incremental_selection.keymaps.node_incremental = "<C-n>"
+      -- opts.incremental_selection.keymaps.scope_incremental = "<A-n>"
     end,
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     version = "^2.0.0",
     opts = {
       ensure_installed = {

@@ -8,7 +8,7 @@
 	"margin-left": 0,
 	"margin-right": 0,
 	"modules-left": ["hyprland/workspaces", "privacy"],
-	"modules-center": ["mpd", "mpris", "clock", "custom/pomodoro"],
+	"modules-center": ["mpris", "clock", "custom/pomodoro"],
 	"modules-right": [
 		// "group/system-info",
 		"tray",
