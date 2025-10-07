@@ -21,10 +21,4 @@ return {
     cmd = "KeyAnalyzer",
     opts = {},
   },
-  {
-    "kiddos/gemini.nvim",
-    enabled = false,
-    build = { "python3 -m pip install -r requirements.txt", ":UpdateRemotePlugins" },
-    opts = {},
-  },
 }

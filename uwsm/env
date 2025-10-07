@@ -1,11 +1,11 @@
 APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'
 #nvidia
-# export GBM_BACKEND=nvidia-drm # general buffer management set to nvidia-drm
-# export __GLX_VENDOR_LIBRARY_NAME=nvidia
-# export __GL_GSYNC_ALLOWED=0
-# export __GL_VRR_ALLOWED=0
-# export LIBVA_DRIVER_NAME=nvidia #nvidia as va-api (video accleration)
-# export NVD_BACKEND=direct
+export GBM_BACKEND=nvidia-drm # general buffer management set to nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __GL_GSYNC_ALLOWED=0
+export __GL_VRR_ALLOWED=0
+export LIBVA_DRIVER_NAME=nvidia #nvidia as va-api (video accleration)
+export NVD_BACKEND=direct
 #electron caveats
 export ELECTRON_OZONE_PLATFORM_HINT=auto # wayland or x11
 # qt
