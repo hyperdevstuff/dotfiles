@@ -18,6 +18,7 @@ return {
         "rust",
         "http",
         "tsx",
+        "qml",
         -- "latex",
         "json",
         "yaml",

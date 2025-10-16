@@ -61,10 +61,10 @@
             "2":       SwitchToTab("Directories"),
             "3":       SwitchToTab("Albums"),
             "4":       SwitchToTab("Artists"),
-            "5":       SwitchToTab("Album Artists"),
-            "6":       SwitchToTab("Playlists"),
+            "5":       SwitchToTab("Playlists"),
+            "6":       SwitchToTab("Lyrics"),
             "7":       SwitchToTab("Search"),
-            "<C-f>":   SwitchToTab("Search"),
+            "<C-g>":   SwitchToTab("Search"),
             "q":       Quit,
             ">":       NextTrack,
             "<":       PreviousTrack,
@@ -189,21 +189,18 @@
                 ],
             ),
         ),
-        ( 
-name: "Directories",
-        border_type: None,
-        pane: Split(
-            direction: Horizontal,
-            panes: [
-                (size: "80%", pane: Pane(Directories)), // The main list of directories
-                (size: "20%", pane: Pane(AlbumArt))// The new art preview pane
-            ]
-        )
-    ),
+        (name: "Directories",    pane: Pane(Directories), border_type: None ),
         ( name: "Albums",        pane: Pane(Albums),border_type:None ),
         ( name: "Artists",       pane: Pane(Artists),border_type:None ),
-        ( name: "Album Artists", pane: Pane(AlbumArtists),border_type:None ),
         ( name: "Playlists",     pane: Pane(Playlists),border_type:None ),
+        (
+            name: "Lyrics",
+            pane: Split(
+                direction: Horizontal,
+                borders: "BOTTOM",
+                panes: [(size: "100%", pane: Pane(AlbumArt)), (size: "100%", pane: Pane(Lyrics))],
+            ),
+        ),
         ( name: "Search",        pane: Pane(Search),border_type:None ),
     ],
 )

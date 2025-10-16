@@ -8,7 +8,7 @@
 	"margin-left": 0,
 	"margin-right": 0,
 	"modules-left": ["hyprland/workspaces", "privacy"],
-	"modules-center": ["mpris", "clock", "custom/pomodoro"],
+	"modules-center": ["mpd", "mpris", "clock", "custom/pomodoro"],
 	"modules-right": [
 		// "group/system-info",
 		"tray",
@@ -61,7 +61,6 @@
 	},
 	"mpris": {
 		"format": "{player_icon} {dynamic}",
-		// "player": "mpd",
 		"player-icons": {
 			"spotify": "",
 			"vlc": "󰕼",
@@ -77,7 +76,26 @@
 		"tooltip": true,
 		"tooltip-format": "{dynamic}",
 		"format-paused": "{player_icon} {dynamic}",
-		"ignored-players": []
+		"ignored-players": ["mpd"]
+	},
+	"mpd": {
+		// "format": "  {artist} - {title}",
+		// "format-stopped": "",
+		"artist-len": 15,
+		"on-click": "rmpc togglepause",
+		"on-click-right": "rmpc tooglepause",
+		"album-len": 15,
+		"title-len": 15,
+		"format-disconnected": "",
+		"format": "{stateIcon} {artist} - {title}",
+		"format-stopped": "",
+		"interval": 10,
+		"state-icons": {
+			"paused": "",
+			"playing": ""
+		},
+		"tooltip-format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+		"tooltip-format-disconnected": "disconnected"
 	},
 	"clock": {
 		"format": "{:%a %OI:%M %p}",
