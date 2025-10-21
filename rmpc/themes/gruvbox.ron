@@ -78,7 +78,7 @@
         )),
     "volume": Pane(Property(
       content: [
-                (kind: Text("  ")),
+                (kind: Text("Vol: ")),
                 (kind: Property(Status(Volume)), style: (fg: "#7daea3", modifiers: "Bold")),
                 (kind: Text("% ")), // Spacing between volume and states
       ],
