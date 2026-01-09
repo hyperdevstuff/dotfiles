@@ -25,6 +25,7 @@ truncate_to_repo = true
 style = "bold #d3869b"
 symbol = " "
 
+
 [git_status]
 style = "bold #fabd2f"
 conflicted = "=[$count](bold #fb4934)"
