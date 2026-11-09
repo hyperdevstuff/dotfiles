@@ -4,23 +4,20 @@ alias c clear
 alias x exit
 alias q exit
 alias mk mkdir
-alias mv 'mv --verbose'
 alias :q exit
-alias cp 'cp --recursive --verbose --progress'
 alias .. 'cd ..'
 alias ... 'cd ../..'
 alias rel 'source ~/.config/fish/config.fish'
 
 # === TYPO FIXES ===
-alias pamcan pacman
 alias gti git
 alias gut git
 alias claer clear
 
 # === SAFE OPS ===
 alias rm 'rm -Ii'
-alias cp 'cp -i'
-alias mv 'mv -i'
+alias cp 'cp -i --verbose'
+alias mv 'mv -i --verbose'
 
 # === MODERN CLI ===
 alias cat 'bat --style=auto'
@@ -40,20 +37,14 @@ alias lS 'eza --long --icons --sort=size --reverse'
 alias lm 'eza --long --icons --sort=modified --reverse'
 alias lG 'eza --long --icons --git'
 
-# === WSL SPECIFIC ===
-alias clip 'win32yank.exe -i'
-alias paste 'win32yank.exe -o --lf'
-alias open wsl-open
-alias o wsl-open
-alias exp 'explorer.exe .'
-
-# === PACKAGE MANAGEMENT ===
-alias yain 'yay -S'
-alias yaup 'yay -Syu'
-alias yarem 'yay -Rns'
-alias yasr 'yay -Ss'
-alias yaclean 'yay -Sc && yay -Yc'
-alias yaorph 'yay -Rns (yay -Qtdq)'
+# === ALPINE PACKAGE MANAGEMENT ===
+alias ain 'doas apk add'
+alias arm 'doas apk del'
+alias aup 'doas apk upgrade'
+alias asr 'apk search'
+alias ainf 'apk info -a'
+alias afi 'apk info --who-owns'
+alias alck 'doas apk cache clean'
 
 # === BUN/DEV ===
 alias b bun
@@ -94,7 +85,7 @@ alias wtf3000 'fuser -v 3000/tcp'
 alias psg 'ps aux | rg'
 alias size 'du -sh --block-size=MB'
 
-# === DOCKER (if u use it) ===
+# === DOCKER ===
 alias d docker
 alias dc 'docker compose'
 alias dcu 'docker compose up'

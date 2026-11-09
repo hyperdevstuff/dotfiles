@@ -1,6 +1,49 @@
 [mgr]
 prepend_keymap = [
-  { on = "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
-  { on = "p", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
+  # === NAVIGATION ===
+  { on = "l", run = "plugin smart-enter", desc = "Enter directory or open file" },
+  { on = "p", run = "plugin smart-paste", desc = "Paste into hovered directory or CWD" },
+  { on = "h", run = "leave", desc = "Go to parent directory" },
+  { on = "J", run = "seek -5", desc = "Seek down 5 units" },
+  { on = "K", run = "seek 5", desc = "Seek up 5 units" },
+  { on = "<C-u>", run = "seek -50%", desc = "Scroll half page up" },
+  { on = "<C-d>", run = "seek 50%", desc = "Scroll half page down" },
+
+  # === TABS ===
+  { on = "t", run = "tab_create --current", desc = "Create new tab" },
+  { on = "]", run = "tab_switch --relative 1 --wrap", desc = "Next tab" },
+  { on = "[", run = "tab_switch --relative -1 --wrap", desc = "Previous tab" },
+  { on = "Q", run = "tab_close --current", desc = "Close current tab" },
+  { on = "1", run = "tab_switch 0", desc = "Switch to tab 1" },
+  { on = "2", run = "tab_switch 1", desc = "Switch to tab 2" },
+  { on = "3", run = "tab_switch 2", desc = "Switch to tab 3" },
+  { on = "4", run = "tab_switch 3", desc = "Switch to tab 4" },
+  { on = "5", run = "tab_switch 4", desc = "Switch to tab 5" },
+
+  # === SELECTION ===
+  { on = "<Space>", run = [ "select --state=none", "arrow 1" ], desc = "Toggle selection and move down" },
+  { on = "y", run = [ "yank" ], desc = "Copy selected files" },
+  { on = "x", run = [ "yank --cut" ], desc = "Cut selected files" },
+  { on = "Y", run = [ "unyank" ], desc = "Cancel yank/cut" },
+
+  # === SORTING ===
+  { on = ",", run = "sort --reverse=no --dir-first", desc = "Sort: natural order" },
+  { on = ".", run = "sort --reverse --dir-first", desc = "Sort: reverse natural" },
+  { on = "S", run = "sort --by=size --reverse", desc = "Sort: size (largest first)" },
+  { on = "M", run = "sort --by=modified --reverse", desc = "Sort: modified (newest first)" },
+  { on = "E", run = "sort --by=extension --dir-first", desc = "Sort: by extension" },
+
+  # === SEARCH ===
+  { on = "/", run = "find --smart", desc = "Find files" },
+  { on = "?", run = "help", desc = "Show help" },
+
+  # === SHELL/COMMANDS ===
+  { on = ";", run = "shell --interactive --block", desc = "Run shell command (blocking)" },
+  { on = ":", run = "shell --interactive", desc = "Run shell command" },
+
+  # === PREVIEW ===
+  { on = "z", run = "plugin max-preview", desc = "Toggle max preview" },
+
+  # === KDE CONNECT ===
   { on = "<C-m>", run = "plugin kdeconnect-send", desc = "Send selected files via KDE Connect" },
 ]
